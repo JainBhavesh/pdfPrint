@@ -1,5 +1,7 @@
 {
   "name": "pdfPrint",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

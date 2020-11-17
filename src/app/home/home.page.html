@@ -1,20 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div mode=ios>
+    <ion-card mode=ios class="text-center">
+      <form [formGroup]="Company" (ngSubmit)="preview()">
+        <ion-item>
+          <ion-input type="text" formControlName="title" placeholder="Title"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" formControlName="name" placeholder="Company name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" formControlName="address" placeholder="Address"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" formControlName="docNo" placeholder="Ref. Document No"></ion-input>
+        </ion-item>
+
+        <ion-card *ngFor="let d of doc;let i=index">
+          <div class="ion-text-right" *ngIf="doc.length > 1">
+            <ion-icon name="trash-outline" style="color:red;font-size: 25px;" (click)="remove(i)"></ion-icon>
+          </div>
+          <ion-item>
+            <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="d.dis" type=text placeholder="Image Discription"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="d.image">
+            <img [src]="d.image">
+          </ion-item>
+          <ion-item>
+            <input type=file (change)="upload($event,i)">
+          </ion-item>
+          <div class="ion-text-right" *ngIf="i == doc.length -1">
+            <ion-button (click)="add()" class="ion-margin" shape=round>Add Another</ion-button>
+          </div>
+    </ion-card>
+
+
+
+    <ion-button type="submit" expand="full" shape=round class="ion-margin"> Preview</ion-button>
+    </form>
+    </ion-card>
+
+
   </div>
 </ion-content>

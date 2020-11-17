@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Preview</ion-title>
+
+    <ion-buttons (click)="print()" slot=end>
+      <ion-icon name="print-outline" style="font-size: 30px;margin-right: 10px;"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin" id="pdf">
+    <div class="ion-text-center ion-margin title">
+      {{data?.title}}
+    </div>
+    <table id="customers">
+      <tr>
+        <td>Company Name</td>
+        <td>{{data?.name}}</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>{{data.address}}</td>
+      </tr>
+      <tr>
+        <td>Document Ref. No</td>
+        <td>{{data.docNo}}</td>
+      </tr>
+    </table>
+    <div *ngFor="let image of image">
+      <p style="font-size: medium;;margin-bottom: 16px;" class="title">
+        {{image?.dis}}
+      </p>
+      <img [src]="image?.image">
+    </div>
+  </div>
+</ion-content>

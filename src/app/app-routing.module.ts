@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'print',
+    loadChildren: () => import('./print/print.module').then( m => m.PrintPageModule)
+  },
 ];
 
 @NgModule({
