@@ -25,7 +25,8 @@
     "@ionic/angular": "^5.0.0",
     "cordova-android": "9.0.0",
     "cordova-browser": "6.0.0",
-    "dom-to-pdf": "^0.1.2",
+    "dom-to-image": "^2.6.0",
+    "jspdf": "^2.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

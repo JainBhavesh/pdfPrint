@@ -1,6 +1,7 @@
 #customers {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 10px;
   }
   
   #customers td, #customers th {
@@ -13,6 +14,28 @@
   }
 
   .title{
-      color: cadetblue;
-      font-size: large;
+    color: cadetblue;
+    font-size: large;
+    margin-top: 0;
+    margin-bottom: 5px;
   }
+
+  .header,
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+}
+.header {
+    top: 0px;
+}
+.footer {
+    bottom: 0px;
+}
+.pagenum:before {
+    content: counter(page);
+}
+
+.f20{
+    font-size: 20px;
+}
