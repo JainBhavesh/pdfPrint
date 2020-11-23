@@ -54,7 +54,7 @@ export class PrintPage {
         } else {
           doc.addImage(headerImg, 10, 2, doc.internal.pageSize.width - 15, 40);
           doc.addImage(dataImage, 'png', 10, 45, 200, 100);
-          doc.text('Prepared By  (Sign./ Date:)______________(Sign./ Date:)______________', 10, doc.internal.pageSize.height - 15);
+          doc.text('Prepared By  (Sign./ Date:)______________ (Sign./ Date:)______________', 10, doc.internal.pageSize.height - 15);
           doc.text('Page No: ' + page, doc.internal.pageSize.width - 40, doc.internal.pageSize.height - 5);
           page++;
         }
