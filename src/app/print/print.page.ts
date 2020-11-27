@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 // import * as domToPdf from 'dom-to-pdf';
 import { jsPDF } from "jspdf";
 import domtoimage from 'dom-to-image';
+import * as dom2pdf from 'dom2pdf';
+
 
 
 @Component({
@@ -74,6 +76,20 @@ export class PrintPage {
       // domToPdf(element, options, function (data) {
       //   console.log('done => ',data);
       // });
+    }, 2000);
+  }
+
+  async printHTML() {
+    var page = document.getElementById('pdf');
+    var doc = new jsPDF();
+    var headerImg;
+    headerImg = await this.getImage(page);
+
+    setTimeout(() => {
+      // dom2pdf.downloadPDF(page, 'testing.pdf');
+
+      doc.addImage(headerImg, 0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height);
+      doc.save('test.pdf')
     }, 2000);
   }
 }

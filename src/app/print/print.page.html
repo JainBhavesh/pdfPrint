@@ -2,35 +2,73 @@
   <ion-toolbar>
     <ion-title>Preview</ion-title>
 
-    <ion-buttons (click)="print()" slot=end>
+    <ion-buttons (click)="printHTML()" slot=end>
       <ion-icon name="print-outline" style="font-size: 30px;margin-right: 10px;"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-margin" id="pdf">
-    <div style="padding: 10px 0;" id="header">
-      <div class="ion-text-center title f20">
-        {{data?.title}}
-      </div>
+  <div class="ion-padding" id="pdf">
+    <div *ngFor="let image of image;let i = index">
+        <div class="container" *ngIf="i % 2 == 0">
+          <table class="table table-bordered ion-text-left" style="margin: 0;">
+            <tbody>
+              <tr>
+                <td colspan="2" class="ion-text-cecnter">
+                  {{data?.title}}
+                </td>
+              </tr>
+              <tr>
+                <td>Company Name</td>
+                <td>{{data?.name}}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>{{data.address}}</td>
+              </tr>
+              <tr>
+                <td>Ref. Document No</td>
+                <td>{{data?.docNo}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
       <div>
-        <p class="title">Company Name: <span style="color: black;">{{data?.name}}</span></p>
+        <p style="font-size: medium;;margin-bottom: 5px;    white-space: pre-line;" class="title" *ngIf=image?.dis>
+          {{image?.dis.trim()}}
+        </p>
+        <div class="ion-text-center">
+          <img [src]="image?.image" width="200" height="112">
+        </div>
+      </div>
 
-        <p class="title">Address: <span style="color: black;">{{data.address}}</span></p>
-
-        <p class="title">Ref. Document No: <span style="color: black;">{{data?.docNo}}</span></p>
+      <div class="footer" *ngIf="i % 2 == 0">
+        <table class="table table-bordered ion-text-left">
+          <tbody>
+            <tr>
+              <td>
+                Prepared By:
+              </td>
+              <td>
+                Verified By
+              </td>
+              <td rowspan="2">Page No</td>
+            </tr>
+            <tr>
+              <td>
+                Sign./Date
+              </td>
+              <td>
+                Sign./Date
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
       </div>
     </div>
 
-
-    <div *ngFor="let image of image;let i = index" class="img{{i}}">
-      <p style="font-size: medium;;margin-bottom: 5px;    white-space: pre-line;" class="title" *ngIf=image?.dis>
-        {{image?.dis.trim()}}
-      </p>
-      <div class="ion-text-center">
-        <img [src]="image?.image" width="200" height="112">
-      </div>
-    </div>
   </div>
 </ion-content>

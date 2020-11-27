@@ -26,6 +26,7 @@
     "cordova-android": "9.0.0",
     "cordova-browser": "6.0.0",
     "dom-to-image": "^2.6.0",
+    "dom2pdf": "0.0.2",
     "jspdf": "^2.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
