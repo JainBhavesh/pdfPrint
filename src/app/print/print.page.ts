@@ -48,13 +48,15 @@ export class PrintPage {
 
         dataImage = await this.getImage(img);
         if (i % 2 == 0) {
-          doc.addImage(dataImage, 'png', 10, 150, 200, 100);
+          doc.addImage(dataImage, 'png', 10, 150, 120, 80);
           if (this.image.length > 2)
             doc.addPage();
         } else {
-          doc.addImage(headerImg, 10, 2, doc.internal.pageSize.width - 15, 40);
-          doc.addImage(dataImage, 'png', 10, 45, 200, 100);
-          doc.text('Prepared By  (Sign./ Date:)______________ (Sign./ Date:)______________', 10, doc.internal.pageSize.height - 15);
+          doc.addImage(headerImg, 10, 2, doc.internal.pageSize.width - 100, 40);
+          doc.addImage(dataImage, 'png', 10, 45, 120, 80);
+          doc.setFont('Times New Roman');
+          doc.text('Prepared By                           Verify By', 10, doc.internal.pageSize.height - 25);
+          doc.text('Sign./ Date:______________ Sign./ Date:______________', 10, doc.internal.pageSize.height - 15);
           doc.text('Page No: ' + page, doc.internal.pageSize.width - 40, doc.internal.pageSize.height - 5);
           page++;
         }
